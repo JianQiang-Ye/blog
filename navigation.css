@@ -1,7 +1,7 @@
 body{
     background-color: #efefef;
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 *{
     padding: 0;
@@ -14,33 +14,96 @@ a{
 li{
     list-style: none;
 }
-
 nav>ul>li{
     float: left;
     margin-left: 17px;
     margin-right: 17px;
+    position: relative;
 }
-nav>ul>li>a{border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;
+nav>ul>li>a{position:relative; color:inherit;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-top: 5px;padding-bottom: 5px;display: block;
 }
-nav>ul>li>a:hover{
-    border-bottom: 3px solid #e06567;
+nav>ul>li>a:hover::after{
+    content:'';
+    display:block;
+    width:100%;
+    background-color: #e06567;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 3px;
+    animation: menuSlide 0.5s;
+}
+@keyframes menuSlide{
+    /* 一开始没有宽度，最后恢复原来的宽度 */
+    0% {
+        width: 0;
+    }
+    100% {
+        width:100%;
+    }
 }
 nav>ul{
     font-size: 12px;
-    color: #b7b7b7;
     font-weight: bold;
+}
+nav ul li ul.submenu{
+    display: none;
+    /* 这里在active状态下，从none到inlineblock，会出现突然变宽的状况，因此要用绝对定位 */
+    position: absolute;
+    /* 由于父元素是float：left，特性是能缩多少就缩多少，再加上ul没有给宽度，因此会出现缩成一团的现象 */
+    /* 解决办法：不要换行 */
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: white;
+    right: 0;
+}
+nav ul li.activeFromLi ul.submenu{
+    display:inline-block;
+    animation: liSlide 0.5s;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+@keyframes liSlide{
+    0% {
+        /* margin:100%的意思是父元素的100% */
+        margin-right:100%;
+    }
+    100%{
+        margin-right:0;
+    }
+}
+nav ul li ul.submenu li{
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #3d4451;
+    font-weight: inherit;
 }
 .clearfix::after{
     content: '';
     display: block;
     clear: both;
 }
+.topNavBar{
+    position: fixed;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1;
+    color: #b7b7b7;
+}
+.topNavBar.sticky{
+    background-color: white;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    transition: all 1s;
+    color: #3d4451;
+}
 .topNavBarInner > a{
     float: left;
     font-family: 'Arial Black';
     font-size: 24px;
-    padding-top: 8.4px;
-    padding-bottom: 2px;
+    /* padding-top: 8.4px;
+    padding-bottom: 2px; */
 }
 .topNavBar nav{
     float: right;
@@ -51,10 +114,6 @@ nav>ul{
 .topNavBar a .card{
     color: #9a9da2;
 }
-.topNavBar{
-    position: fixed;
-    width: 100%;
-}
 .topNavBar a span.rs{
     margin-right: 4px;
 }
@@ -63,7 +122,7 @@ nav>ul{
     height: 515px;
 }
 .topNavBarInner{
-    padding: 20px 16px;
+    padding: 10px 16px;
 }
 .banner .mask{
     height: 515px;

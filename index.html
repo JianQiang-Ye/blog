@@ -37,20 +37,46 @@
     <div id="siteWelcome"class="site-welcome active">
         <div class="loading"></div>
     </div>
-    <div class="topNavBar">
+    <div id="topNavBar"class="topNavBar">
         <div class="topNavBarInner clearfix">
             <a href="javascript:;">
                 <span class="rs">RS</span><span class="card">card</span>
             </a>
             <nav class="clearfix">
                 <ul>
-                    <li><a href="javacript:;">关于</a></li>
-                    <li><a href="javacript:;">技能</a></li>
-                    <li><a href="javacript:;">作品</a></li>
-                    <li><a href="javacript:;">博客</a></li>
-                    <li><a href="javacript:;">日历</a></li>
-                    <li><a href="javacript:;">联系方式</a></li>
-                    <li><a href="javacript:;">其他</a></li>
+                    <li>
+                        <a class="pageJump" href="#userCard">关于</a>
+                    </li>
+                    <li>
+                        <a class="pageJump" href="#skills">技能</a>
+                    </li>
+                    <li class="menuTigger">
+                        <a class="pageJump" href="#portfolio">作品</a>
+                        <!-- 这里加的列表最好是加在a标签的外面 -->
+                        <!-- ul>li{作品$}*3 -->
+                        <ul class="submenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
+                    <li class="menuTigger">
+                        <a href="javacript:;">博客</a>
+                        <ul class="submenu">
+                            <li>博客1</li>
+                            <li>博客2</li>
+                            <li>博客3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javacript:;">日历</a>
+                    </li>
+                    <li>
+                        <a href="javacript:;">联系方式</a>
+                    </li>
+                    <li>
+                        <a href="javacript:;">其他</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -59,7 +85,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div class="userCard ">
+        <div id="userCard" class="userCard ">
             <div class="pitureAndText clearfix">
                 <div class="piture">
                     <img src="./avatar.jpg" width="299" height="347" alt="头像">
@@ -69,7 +95,7 @@
                         <span class="triangle"></span>
                     </span>
                     <h1>YJQ</h1>
-                    <p>前端开发工程师11</p>
+                    <p>前端开发工程师</p>
                     <hr>
                     <dl class="clearfix">
                         <dt>年龄</dt>
@@ -108,7 +134,7 @@
             <br>技能：前端开发，Rails 开发，Node.js 开发
         </p>
     </main>
-    <section class="skills">
+    <section id="skills"class="skills">
         <h2>技能</h2>
         <ol class="skillsList clearfix">
             <li>HTML 5 & CSS 3
@@ -138,12 +164,12 @@
             </li>
             <li>Node.js
                     <div class="progressBar" >
-                            <div class="progressBarInner" style="width: 20%;"></div>
+                            <div class="progressBarInner" style="width: 10%;"></div>
                     </div>
             </li>
         </ol>
-    </section>
-    <section class="portfolio">
+    </section> 
+    <section id="portfolio" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -182,7 +208,8 @@
         var div = document.getElementById('siteWelcome')
         setTimeout(function(){
             div.classList.remove('active')
-        },2000)
+        },10)
     </script>
+    <script src="index.js"></script>
 </body>
 </html>
