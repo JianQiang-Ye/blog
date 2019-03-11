@@ -373,7 +373,7 @@ section.portfolio .works{
 [auto-highlight]{
     transform: translateY(250px);
 }
-[auto-highlight].sildeU{
+[auto-highlight].sildeUp{
     animation: sildeUp 1.5s forwards;
 }
 @keyframes sildeUp{
