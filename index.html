@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./navigation.css">
     <script src="//at.alicdn.com/t/font_1039013_yzmkgdz6mff.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.js"></script>
     <link rel="stylesheet" href="loading.css">
     <style type="text/css">
         .icon {
@@ -34,9 +35,9 @@
     </style>
 </head>
 <body>
-    <div id="siteWelcome"class="site-welcome active">
+    <!-- <div id="siteWelcome"class="site-welcome active">
         <div class="loading"></div>
-    </div>
+    </div> -->
     <div id="topNavBar"class="topNavBar">
         <div class="topNavBarInner clearfix">
             <a href="javascript:;">
@@ -85,7 +86,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="userCard" class="userCard ">
+        <div auto-highlight id="userCard" class="userCard">
             <div class="pitureAndText clearfix">
                 <div class="piture">
                     <img src="./avatar.jpg" width="299" height="347" alt="头像">
@@ -134,7 +135,7 @@
             <br>技能：前端开发，Rails 开发，Node.js 开发
         </p>
     </main>
-    <section id="skills"class="skills">
+    <section auto-highlight id="skills"class="skills">
         <h2>技能</h2>
         <ol class="skillsList clearfix">
             <li>HTML 5 & CSS 3
@@ -169,7 +170,7 @@
             </li>
         </ol>
     </section> 
-    <section id="portfolio" class="portfolio">
+    <section auto-highlight id="portfolio" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -208,7 +209,7 @@
         var div = document.getElementById('siteWelcome')
         setTimeout(function(){
             div.classList.remove('active')
-        },10)
+        },1000)
     </script>
     <script src="index.js"></script>
 </body>

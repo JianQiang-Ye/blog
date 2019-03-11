@@ -43,6 +43,18 @@ nav>ul>li>a:hover::after{
         width:100%;
     }
 }
+nav>ul>li>a.highlight::after{
+    content:'';
+    display:block;
+    width:100%;
+    background-color: #e06567;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 3px;
+    animation: menuSlide 0.5s;
+}
 nav>ul{
     font-size: 12px;
     font-weight: bold;
@@ -267,12 +279,18 @@ section.skills .progressBar{
     background-color: #fae1e1;
     border-radius: 2px;
     margin-top: 4px;
+    overflow: hidden; /*把自己以外的东西遮住*/
 }
 section.skills .progressBar .progressBarInner{
     height: 100%;
     width: 50%;
     background-color: #e6686a;
     border-radius: 2px;
+    transform: translateX(-100%); /*先向左移100%*/
+    transition: all 2s;
+}
+section.skills.sildeUp .progressBar .progressBarInner{
+    transform: translateX(0); /*然后再恢复到原来的位置*/
 }
 section.skills li{
     float: left;
@@ -352,5 +370,19 @@ section.portfolio .works{
     margin-bottom: 100px;
     height: 597px;
 } 
+[auto-highlight]{
+    transform: translateY(250px);
+}
+[auto-highlight].sildeU{
+    animation: sildeUp 1.5s forwards;
+}
+@keyframes sildeUp{
+    0% {
+        transform: translateY(250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
 
