@@ -14,6 +14,7 @@
             return query.find()
         },
         save(username,message){
+            if(!username || !message) return
             var TestObject = AV.Object.extend('Message');
             var testObject = new TestObject();
 
