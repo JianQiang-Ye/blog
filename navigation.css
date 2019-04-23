@@ -384,5 +384,26 @@ section.portfolio .works{
         transform: translateY(0);
     }
 }
+section.message h2,
+section.message form{
+    text-align: center;
+}
+section.message form{
+    margin: 50px;
+}
+
+.messageWrapper .messageBox{
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 940px;
+    margin: 20px auto;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.38);
+    border-radius: 2px;
+}
+
+.messageWrapper .messageBox span.username{
+    font-weight: bold;
+    padding: 12px;
+}
 
 
